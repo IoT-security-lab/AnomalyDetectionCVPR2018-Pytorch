@@ -15,7 +15,7 @@ class VideoIter(data.Dataset):
                  video_transform=None,
                  name="<NO_NAME>",
                  shuffle_list_seed=None,
-                 single_load=False):
+                 single_load=True):
         super(VideoIter, self).__init__()
         self.dataset_path = dataset_path
         self.frames_stride = frame_stride
@@ -73,7 +73,6 @@ class VideoIter(data.Dataset):
 
         dir, file = video_path.split(os.sep)[-2:]
         file = file.split('.')[0]
-
         return video, label, clip_idx, dir, file
 
     def __len__(self):
